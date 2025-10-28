@@ -1,0 +1,200 @@
+/* ==== ESTILOS BASE ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(135deg, #b2ebf2, #80deea, #26c6da);
+  color: #00363a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==== NAVBAR ==== */
+.navbar {
+  background: rgba(0, 77, 64, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.logo {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #fff;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.nav-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links a {
+  color: #e0f2f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #26c6da;
+}
+
+/* ==== DASHBOARD GRID ==== */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 25px;
+  padding: 25px;
+  flex-grow: 1;
+}
+
+.panel {
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.panel h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #004d40;
+}
+
+/* ==== RESUMEN ==== */
+.resumen-box {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.resumen-item {
+  text-align: center;
+}
+
+.resumen-item h3 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  color: #00796b;
+}
+
+/* ==== TARJETAS ==== */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: 250px;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.card-header {
+  background: #00acc1;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.estado {
+  background: white;
+  color: #00acc1;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.card-body {
+  text-align: center;
+  padding: 25px;
+}
+
+.distancia {
+  font-size: 1.8rem;
+  color: #004d40;
+}
+
+/* Colores dinámicos */
+.card.libre .card-header {
+  background: #43a047;
+}
+
+.card.libre .estado {
+  color: #43a047;
+}
+
+.card.ocupado .card-header {
+  background: #e53935;
+}
+
+.card.ocupado .estado {
+  color: #e53935;
+}
+
+.card.loading .card-header {
+  background: #bdbdbd;
+}
+
+/* ==== REGISTRO ==== */
+.registro ul {
+  list-style: none;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.registro li {
+  background: #e0f7fa;
+  padding: 8px 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #004d40;
+}
+
+/* ==== RESPONSIVO ==== */
+@media (max-width: 992px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==== FOOTER ==== */
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.8);
+  color: #004d40;
+  margin-top: auto;
+}

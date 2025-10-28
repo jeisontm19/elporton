@@ -22,6 +22,7 @@ body {
   align-items: center;
   padding: 12px 40px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -47,6 +48,7 @@ body {
   list-style: none;
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .navbar-links a {
@@ -87,11 +89,13 @@ body {
 .resumen-box {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 20px 0;
 }
 
 .resumen-item {
   text-align: center;
+  margin: 10px;
 }
 
 .resumen-item h3 {
@@ -182,13 +186,6 @@ body {
   color: #004d40;
 }
 
-/* ==== RESPONSIVO ==== */
-@media (max-width: 992px) {
-  .dashboard {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ==== FOOTER ==== */
 footer {
   text-align: center;
@@ -197,4 +194,99 @@ footer {
   background: rgba(255,255,255,0.8);
   color: #004d40;
   margin-top: auto;
+}
+
+/* ==== RESPONSIVO ==== */
+
+/* Tablets (≤992px) */
+@media (max-width: 992px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .nav-title {
+    font-size: 1.4rem;
+  }
+
+  .navbar-links {
+    gap: 15px;
+  }
+
+  .cards-container {
+    justify-content: center;
+  }
+
+  .card {
+    width: 220px;
+  }
+}
+
+/* Celulares medianos (≤768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .navbar-left {
+    margin-bottom: 10px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+
+  .resumen-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .distancia {
+    font-size: 1.5rem;
+  }
+}
+
+/* Celulares pequeños (≤480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .nav-title {
+    font-size: 1.2rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .resumen-item h3 {
+    font-size: 2rem;
+  }
 }

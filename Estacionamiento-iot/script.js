@@ -187,7 +187,7 @@ onValue(ref(db, "sensorIR/valor"), snap => {
     estadoIR.textContent = "Entrada libre";
     topIR.className = "top libre";
     cardIR.className = "card libre";
-    iconIR.src = "img/espacio.png";
+    iconIR.src = "img/libre.png";
     log("Entrada: No detectado");
   } else {
     distanciaIR.textContent = String(v);
@@ -198,3 +198,4 @@ onValue(ref(db, "sensorIR/valor"), snap => {
     log(`Entrada: Valor inesperado -> ${v}`);
   }
 });
+

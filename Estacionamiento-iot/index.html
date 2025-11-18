@@ -1,76 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El porton</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="script.js" defer></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Smart Parking — Futurista</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+  <header>
+    <div class="logo"><img src="img/logito.png" alt="Logo"><span>EL PORTÓN</span></div>
+    <nav>
+      <a href="#">Inicio</a><a href="#">Monitoreo</a><a href="#">Reportes</a><a href="#">Config</a>
+    </nav>
+  </header>
 
-  <!-- 🧭 NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <img src="logo.png" alt="Logo" class="logo">
-      <h1 class="nav-title">El porton</h1>
-    </div>
-    <ul class="navbar-links">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Monitoreo</a></li>
-      <li><a href="#">Reportes</a></li>
-      <li><a href="#">Configuración</a></li>
-    </ul>
-  </nav>
+  <div class="layout">
 
-  <!-- 🧩 CONTENEDOR PRINCIPAL -->
-  <main class="dashboard">
-
-    <!-- 📊 SECCIÓN 1: RESUMEN -->
-    <section class="panel resumen">
-      <h2>📊 Resumen General</h2>
-      <div class="resumen-box">
-        <div class="resumen-item">
-          <h3 id="ocupados">0</h3>
-          <p>Espacios Ocupados</p>
-        </div>
-        <div class="resumen-item">
-          <h3 id="libres">0</h3>
-          <p>Espacios Libres</p>
-        </div>
+    <!-- Resumen -->
+    <section class="columna card-container">
+      <h2><i class="fa-solid fa-chart-pie"></i> Resumen General</h2>
+      <div class="resumen-box" aria-live="polite">
+        <div class="item"><h3 id="ocupados">0</h3><p>Espacios Ocupados</p></div>
+        <div class="item"><h3 id="libres">0</h3><p>Espacios Libres</p></div>
       </div>
     </section>
 
-    <!-- 🚗 SECCIÓN 2: MONITOREO -->
-    <section class="panel monitoreo">
-      <h2>🚗 Monitoreo en Tiempo Real</h2>
-      <div class="cards-container">
-        <div id="sensor-card" class="card loading">
-          <div class="card-header">
-            <h3>Espacio 1</h3>
-            <span id="estado" class="estado">Cargando...</span>
+    <!-- Monitoreo -->
+    <section class="columna card-container">
+      <h2><i class="fa-solid fa-car-side"></i> Monitoreo en Tiempo Real</h2>
+
+      <h3 class="subtitulo">Espacios del Estacionamiento</h3>
+      <div class="cards-estacionamiento">
+
+        <!-- Card 1 -->
+        <div class="card" id="card1">
+          <div class="top libre">
+            <span class="titulo">Espacio 1</span>
+            <span id="distancia1" class="distancia-top">-- cm</span>
           </div>
-          <div class="card-body">
-            <p class="distancia"><span id="distancia">--</span> cm</p>
+          <div class="contenido">
+            <img id="icon1" class="icon-img" src="img/sin_datos.png" alt="icono espacio 1" />
+            <span id="estado1" class="estado-bottom">--</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" id="card2">
+          <div class="top libre">
+            <span class="titulo">Espacio 2</span>
+            <span id="distancia2" class="distancia-top">-- cm</span>
+          </div>
+          <div class="contenido">
+            <img id="icon2" class="icon-img" src="img/sin_datos.png" alt="icono espacio 2" />
+            <span id="estado2" class="estado-bottom">--</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" id="card3">
+          <div class="top libre">
+            <span class="titulo">Espacio 3</span>
+            <span id="distancia3" class="distancia-top">-- cm</span>
+          </div>
+          <div class="contenido">
+            <img id="icon3" class="icon-img" src="img/sin_datos.png" alt="icono espacio 3" />
+            <span id="estado3" class="estado-bottom">--</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sensor IR -->
+      <h3 class="subtitulo">Entrada del estacionamiento</h3>
+      <div class="cards-ir">
+        <div class="card" id="cardIR">
+          <div class="top libre" id="topIR">
+            <span class="titulo">Entrada</span>
+            <span id="distanciaIR" class="distancia-top">--</span>
+          </div>
+          <div class="contenido">
+            <img id="iconIR" class="icon-img" src="img/sin_datos.png" alt="icono sensor IR" />
+            <span id="estadoIR" class="estado-bottom">--</span>
           </div>
         </div>
       </div>
+
     </section>
 
-    <!-- 📜 SECCIÓN 3: REGISTRO -->
-    <section class="panel registro">
-      <h2>🕓 Registro de Actividad</h2>
-      <ul id="registro-lista">
-        <li>Esperando datos...</li>
-      </ul>
+    <!-- Actividad -->
+    <section class="columna card-container">
+      <h2><i class="fa-solid fa-clock"></i> Registro de Actividad</h2>
+      <div class="actividad" id="actividad" aria-live="polite">
+        <div class="log">Esperando datos...</div>
+      </div>
     </section>
 
-  </main>
+  </div>
 
-  <!-- ⚙️ FOOTER -->
-  <footer>
-    <p>© 2025 Smart Parking | Desarrollado por <strong>Jason Tab</strong></p>
-  </footer>
-
+  <footer>© 2025 Smart Parking | Desarrollado por Jason Tab</footer>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
